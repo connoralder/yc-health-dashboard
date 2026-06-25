@@ -1,4 +1,5 @@
 import { getCompanyBySlug, getCompanies } from '@/lib/data'
+import { canonicalizeTags } from '@/lib/tags'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, ExternalLink, Star, Globe, MapPin, Users } from 'lucide-react'
@@ -55,11 +56,14 @@ export default async function CompanyPage(props: PageProps<'/company/[slug]'>) {
                   <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
                 )}
               </div>
-              <p className="text-zinc-500 text-sm mt-1">{company.batch} · {company.subindustry}</p>
+              <p className="text-zinc-500 text-sm mt-1">{company.batch}</p>
               <div className="flex flex-wrap gap-2 mt-2">
                 <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${statusColors[company.status]}`}>
                   {company.status}
                 </span>
+                <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100 text-xs">
+                  {company.subindustry === 'Other' ? 'Uncategorized' : company.subindustry}
+                </Badge>
                 {company.isAI && (
                   <Badge className="bg-violet-100 text-violet-700 hover:bg-violet-100 text-xs">AI</Badge>
                 )}
@@ -136,11 +140,11 @@ export default async function CompanyPage(props: PageProps<'/company/[slug]'>) {
           )}
 
           {/* Tags */}
-          {company.tags.length > 0 && (
+          {canonicalizeTags(company.tags).length > 0 && (
             <div>
               <p className="text-xs text-zinc-400 mb-2 uppercase tracking-wider font-medium">Tags</p>
               <div className="flex flex-wrap gap-1.5">
-                {company.tags.map(tag => (
+                {canonicalizeTags(company.tags).map(tag => (
                   <Badge key={tag} variant="outline" className="text-xs text-zinc-600 border-zinc-200">
                     {tag}
                   </Badge>

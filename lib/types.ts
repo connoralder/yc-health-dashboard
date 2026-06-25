@@ -47,9 +47,43 @@ export interface SubindustryPoint {
   acquiredOrPublicCount: number
 }
 
+export interface SectorMomentum {
+  subindustry: string
+  allCount: number
+  recentCount: number
+  recentShare: number
+  allShare: number
+  lift: number
+}
+
+export interface CurrentYearStats {
+  year: number
+  count: number
+  aiCount: number
+  aiPct: number
+  topSubindustry: string
+  topSubindustryCount: number
+  whitespaceSector: string
+  whitespaceSectorCount: number
+}
+
+export interface CurrentBatchStats {
+  batch: string
+  count: number
+  aiCount: number
+  aiPct: number
+}
+
+export interface CurrentYearSector {
+  subindustry: string
+  count: number
+  lift: number | null
+}
+
 export interface Analytics {
   totalCompanies: number
   aiCount: number
+  aiPct: number
   topCompanyCount: number
   acquiredOrPublicCount: number
   byBatch: BatchPoint[]
@@ -59,6 +93,11 @@ export interface Analytics {
   subindustries: string[]
   batches: string[]
   regions: string[]
+  sectorMomentum: SectorMomentum[]
+  currentYearStats: CurrentYearStats
+  currentBatchStats: CurrentBatchStats
+  currentYearSectors: CurrentYearSector[]
+  latestBatch: string
   updatedAt: string
 }
 

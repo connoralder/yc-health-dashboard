@@ -1,6 +1,7 @@
 {
   "totalCompanies": 682,
   "aiCount": 280,
+  "aiPct": 41,
   "topCompanyCount": 6,
   "acquiredOrPublicCount": 63,
   "byBatch": [
@@ -237,7 +238,7 @@
       "acquiredOrPublicCount": 8
     },
     {
-      "subindustry": "Healthcare",
+      "subindustry": "Other",
       "count": 99,
       "aiCount": 61,
       "topCount": 0,
@@ -324,7 +325,7 @@
   "subindustries": [
     "Healthcare IT",
     "Consumer Health and Wellness",
-    "Healthcare",
+    "Other",
     "Healthcare Services",
     "Therapeutics",
     "Diagnostics",
@@ -399,5 +400,135 @@
     "Colombia",
     "Sweden"
   ],
-  "updatedAt": "2026-06-25T03:55:30.484Z"
+  "sectorMomentum": [
+    {
+      "subindustry": "Drug Discovery and Delivery",
+      "allCount": 57,
+      "recentCount": 9,
+      "recentShare": 0.16981132075471697,
+      "allShare": 0.09777015437392796,
+      "lift": 1.7368421052631577
+    },
+    {
+      "subindustry": "Healthcare IT",
+      "allCount": 143,
+      "recentCount": 22,
+      "recentShare": 0.41509433962264153,
+      "allShare": 0.24528301886792453,
+      "lift": 1.6923076923076923
+    },
+    {
+      "subindustry": "Healthcare Services",
+      "allCount": 73,
+      "recentCount": 9,
+      "recentShare": 0.16981132075471697,
+      "allShare": 0.12521440823327615,
+      "lift": 1.356164383561644
+    },
+    {
+      "subindustry": "Therapeutics",
+      "allCount": 63,
+      "recentCount": 4,
+      "recentShare": 0.07547169811320754,
+      "allShare": 0.10806174957118353,
+      "lift": 0.6984126984126984
+    },
+    {
+      "subindustry": "Consumer Health and Wellness",
+      "allCount": 114,
+      "recentCount": 6,
+      "recentShare": 0.11320754716981132,
+      "allShare": 0.1955403087478559,
+      "lift": 0.5789473684210527
+    },
+    {
+      "subindustry": "Industrial Bio",
+      "allCount": 32,
+      "recentCount": 1,
+      "recentShare": 0.018867924528301886,
+      "allShare": 0.0548885077186964,
+      "lift": 0.34375
+    },
+    {
+      "subindustry": "Medical Devices",
+      "allCount": 44,
+      "recentCount": 1,
+      "recentShare": 0.018867924528301886,
+      "allShare": 0.07547169811320754,
+      "lift": 0.25
+    },
+    {
+      "subindustry": "Diagnostics",
+      "allCount": 57,
+      "recentCount": 1,
+      "recentShare": 0.018867924528301886,
+      "allShare": 0.09777015437392796,
+      "lift": 0.19298245614035087
+    }
+  ],
+  "currentYearStats": {
+    "year": 2026,
+    "count": 38,
+    "aiCount": 29,
+    "aiPct": 76,
+    "topSubindustry": "Healthcare Services",
+    "topSubindustryCount": 6,
+    "whitespaceSector": "Industrial Bio",
+    "whitespaceSectorCount": 32
+  },
+  "currentBatchStats": {
+    "batch": "Summer 2026",
+    "count": 5,
+    "aiCount": 5,
+    "aiPct": 100
+  },
+  "currentYearSectors": [
+    {
+      "subindustry": "Healthcare Services",
+      "count": 6,
+      "lift": 1.356164383561644
+    },
+    {
+      "subindustry": "Drug Discovery and Delivery",
+      "count": 6,
+      "lift": 1.7368421052631577
+    },
+    {
+      "subindustry": "Healthcare IT",
+      "count": 5,
+      "lift": 1.6923076923076923
+    },
+    {
+      "subindustry": "Consumer Health and Wellness",
+      "count": 3,
+      "lift": 0.5789473684210527
+    },
+    {
+      "subindustry": "Therapeutics",
+      "count": 1,
+      "lift": 0.6984126984126984
+    },
+    {
+      "subindustry": "Diagnostics",
+      "count": 1,
+      "lift": 0.19298245614035087
+    },
+    {
+      "subindustry": "Medical Devices",
+      "count": 1,
+      "lift": 0.25
+    },
+    {
+      "subindustry": "Industrial Bio",
+      "count": 1,
+      "lift": 0.34375
+    },
+    {
+      "subindustry": "Other",
+      "count": 14,
+      "lift": null
+    }
+  ],
+  "latestBatch": "Summer 2026",
+  "updatedAt": "2026-06-25T20:46:15.065Z"
 }

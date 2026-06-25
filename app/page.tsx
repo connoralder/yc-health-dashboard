@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { getCompanies, getAnalytics } from '@/lib/data'
+import { getFeaturedCompany } from '@/lib/featured'
 import Dashboard from '@/components/Dashboard'
 import IdeaEngine from '@/components/IdeaEngine'
 import {
@@ -18,6 +19,10 @@ export const metadata = {
 export default function Home() {
   const companies = getCompanies()
   const analytics = getAnalytics()
+  const featured = getFeaturedCompany(companies)
+  const currentBatchCompanies = analytics
+    ? companies.filter(c => c.batch === analytics.latestBatch)
+    : []
 
   if (!analytics || companies.length === 0) {
     return (
@@ -44,6 +49,7 @@ export default function Home() {
           </div>
           <nav className="flex items-center gap-4 text-sm text-zinc-500">
             <a href="#dashboard" className="hover:text-zinc-900 transition-colors">Dashboard</a>
+            <a href="#explorer" className="hover:text-zinc-900 transition-colors">Explore</a>
             <a href="#analytics" className="hover:text-zinc-900 transition-colors">Analytics</a>
             <a href="#ideas" className="hover:text-zinc-900 transition-colors">Ideas</a>
           </nav>
@@ -51,18 +57,15 @@ export default function Home() {
       </header>
 
       <main className="max-w-screen-xl mx-auto px-4 sm:px-6 py-8 flex flex-col gap-12">
-        {/* Dashboard section */}
-        <section id="dashboard">
-          <div className="mb-5">
-            <h2 className="text-xl font-bold text-zinc-900">Company Explorer</h2>
-            <p className="text-sm text-zinc-500 mt-1">
-              Filter and browse all {analytics.totalCompanies} YC healthcare companies
-            </p>
-          </div>
-          <Suspense>
-            <Dashboard companies={companies} analytics={analytics} />
-          </Suspense>
-        </section>
+        {/* Dashboard + explorer (hero, filters, grid) */}
+        <Suspense>
+          <Dashboard
+            companies={companies}
+            analytics={analytics}
+            featured={featured}
+            currentBatchCompanies={currentBatchCompanies}
+          />
+        </Suspense>
 
         {/* Analytics section */}
         <section id="analytics">

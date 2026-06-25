@@ -60,13 +60,23 @@ function normalizeCompany(raw: any, overrides: Record<string, any>) {
     name: raw.name,
     oneLiner: raw.one_liner || '',
     longDescription: raw.long_description || '',
-    logoUrl: raw.small_logo_thumb_url || '',
+    // yc-oss returns a relative placeholder ("/company/thumb/missing.png") for
+    // companies with no logo — treat anything that isn't a real http(s) URL as
+    // "no logo" so the UI shows its letter-avatar fallback instead of a 404.
+    logoUrl: (raw.small_logo_thumb_url || '').startsWith('http')
+      ? raw.small_logo_thumb_url
+      : '',
     website: raw.website || '',
     ycUrl: raw.url || `https://www.ycombinator.com/companies/${raw.slug}`,
     batch: raw.batch || '',
     year,
     season,
-    subindustry: (raw.subindustry || 'Other').replace(/^Healthcare -> /, ''),
+    // YC stores subindustry as "Healthcare -> Healthcare IT" etc. Strip the
+    // prefix. Companies with only the top-level "Healthcare" (no subcategory
+    // assigned by YC) become "Other" — YC's uncategorized bucket.
+    subindustry: ((s: string) => (!s || s === 'Healthcare' ? 'Other' : s))(
+      (raw.subindustry || '').replace(/^Healthcare -> /, '')
+    ),
     tags,
     region: (raw.regions || [])[0] || 'Unknown',
     location: typeof raw.all_locations === 'string'
@@ -123,9 +133,106 @@ function buildAnalytics(companies: any[]) {
     .map(([subindustry, data]) => ({ subindustry, ...data }))
     .sort((a, b) => b.count - a.count)
 
+  const years = companies.map(c => c.year).filter(y => y > 0)
+  const maxYear = years.length ? Math.max(...years) : new Date().getFullYear()
+  const recentCutoff = maxYear - 1 // recent window = last two years
+
+  // "Other" is YC's catch-all bucket for companies with no specific subindustry
+  // — exclude it from sector analysis so the real sectors surface.
+  const CATCH_ALL = 'Other'
+  const isCategorized = (c: { subindustry: string }) => c.subindustry !== CATCH_ALL
+
+  // ---- Sector momentum: which canonical YC subindustries are rising/cooling ----
+  // Compared as share of categorized companies, recent window vs all-time.
+  const categorizedAll = companies.filter(isCategorized)
+  const categorizedRecent = categorizedAll.filter(c => c.year >= recentCutoff)
+  const totalCatAll = categorizedAll.length || 1
+  const totalCatRecent = categorizedRecent.length || 1
+
+  const sectorMomentum = bySubindustry
+    .filter(s => s.subindustry !== CATCH_ALL)
+    .map(s => {
+      const recentCount = categorizedRecent.filter(c => c.subindustry === s.subindustry).length
+      const allCount = s.count
+      const recentShare = recentCount / totalCatRecent
+      const allShare = allCount / totalCatAll
+      return {
+        subindustry: s.subindustry,
+        allCount,
+        recentCount,
+        recentShare,
+        allShare,
+        // >1 means over-indexed in recent batches (rising), <1 means cooling
+        lift: allShare > 0 ? recentShare / allShare : 1,
+      }
+    })
+    .sort((a, b) => b.lift - a.lift)
+
+  // ---- Whitespace: least-crowded real sector (opportunity signal) ----
+  const realSectors = bySubindustry.filter(s => s.subindustry !== CATCH_ALL)
+  const whitespaceSector = realSectors.length
+    ? realSectors.reduce((min, s) => (s.count < min.count ? s : min))
+    : null
+
+  // ---- Current-year momentum snapshot ----
+  const currentYearCompanies = companies.filter(c => c.year === maxYear)
+  const cySubCount = new Map<string, number>()
+  for (const c of currentYearCompanies.filter(isCategorized)) {
+    cySubCount.set(c.subindustry, (cySubCount.get(c.subindustry) || 0) + 1)
+  }
+  const topCySub = [...cySubCount.entries()].sort((a, b) => b[1] - a[1])[0]
+  const currentYearStats = {
+    year: maxYear,
+    count: currentYearCompanies.length,
+    aiCount: currentYearCompanies.filter(c => c.isAI).length,
+    aiPct: currentYearCompanies.length
+      ? Math.round(currentYearCompanies.filter(c => c.isAI).length / currentYearCompanies.length * 100)
+      : 0,
+    topSubindustry: topCySub ? topCySub[0] : '',
+    topSubindustryCount: topCySub ? topCySub[1] : 0,
+    whitespaceSector: whitespaceSector ? whitespaceSector.subindustry : '',
+    whitespaceSectorCount: whitespaceSector ? whitespaceSector.count : 0,
+  }
+
+  const totalAll = companies.length || 1
+  const latestBatch = byBatch.length ? byBatch[byBatch.length - 1].batch : ''
+
+  // ---- Current batch snapshot (the latest batch — "who just joined") ----
+  const currentBatchCompanies = companies.filter(c => c.batch === latestBatch)
+  const currentBatchStats = {
+    batch: latestBatch,
+    count: currentBatchCompanies.length,
+    aiCount: currentBatchCompanies.filter(c => c.isAI).length,
+    aiPct: currentBatchCompanies.length
+      ? Math.round(currentBatchCompanies.filter(c => c.isAI).length / currentBatchCompanies.length * 100)
+      : 0,
+  }
+
+  // ---- Current-year sector distribution ("what's being built now") ----
+  // Includes the "Other" (not-yet-categorized) bucket, shown honestly. Each
+  // real sector carries its all-time momentum lift so we can flag rising/cooling.
+  const liftBySector = new Map(sectorMomentum.map(s => [s.subindustry, s.lift]))
+  const cyAllSubCount = new Map<string, number>()
+  for (const c of currentYearCompanies) {
+    cyAllSubCount.set(c.subindustry, (cyAllSubCount.get(c.subindustry) || 0) + 1)
+  }
+  const currentYearSectors = [...cyAllSubCount.entries()]
+    .map(([subindustry, count]) => ({
+      subindustry,
+      count,
+      lift: liftBySector.get(subindustry) ?? null,
+    }))
+    .sort((a, b) => {
+      // Keep the catch-all last regardless of count.
+      if (a.subindustry === CATCH_ALL) return 1
+      if (b.subindustry === CATCH_ALL) return -1
+      return b.count - a.count
+    })
+
   return {
     totalCompanies: companies.length,
     aiCount: companies.filter(c => c.isAI).length,
+    aiPct: Math.round(companies.filter(c => c.isAI).length / totalAll * 100),
     topCompanyCount: companies.filter(c => c.isTopCompany).length,
     acquiredOrPublicCount: companies.filter(c => c.status === 'acquired' || c.status === 'public').length,
     byBatch,
@@ -135,6 +242,11 @@ function buildAnalytics(companies: any[]) {
     subindustries: bySubindustry.map(s => s.subindustry),
     batches: byBatch.map(b => b.batch),
     regions: Object.keys(byRegion).sort((a, b) => byRegion[b] - byRegion[a]),
+    sectorMomentum,
+    currentYearStats,
+    currentBatchStats,
+    currentYearSectors,
+    latestBatch,
     updatedAt: new Date().toISOString(),
   }
 }
