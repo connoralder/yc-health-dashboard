@@ -1,0 +1,403 @@
+{
+  "totalCompanies": 682,
+  "aiCount": 280,
+  "topCompanyCount": 6,
+  "acquiredOrPublicCount": 63,
+  "byBatch": [
+    {
+      "batch": "Winter 2011",
+      "year": 2011,
+      "season": "Winter",
+      "count": 2
+    },
+    {
+      "batch": "Summer 2011",
+      "year": 2011,
+      "season": "Summer",
+      "count": 3
+    },
+    {
+      "batch": "Winter 2012",
+      "year": 2012,
+      "season": "Winter",
+      "count": 2
+    },
+    {
+      "batch": "Summer 2012",
+      "year": 2012,
+      "season": "Summer",
+      "count": 4
+    },
+    {
+      "batch": "Winter 2013",
+      "year": 2013,
+      "season": "Winter",
+      "count": 6
+    },
+    {
+      "batch": "Summer 2013",
+      "year": 2013,
+      "season": "Summer",
+      "count": 4
+    },
+    {
+      "batch": "Winter 2014",
+      "year": 2014,
+      "season": "Winter",
+      "count": 2
+    },
+    {
+      "batch": "Summer 2014",
+      "year": 2014,
+      "season": "Summer",
+      "count": 10
+    },
+    {
+      "batch": "Winter 2015",
+      "year": 2015,
+      "season": "Winter",
+      "count": 20
+    },
+    {
+      "batch": "Summer 2015",
+      "year": 2015,
+      "season": "Summer",
+      "count": 11
+    },
+    {
+      "batch": "Winter 2016",
+      "year": 2016,
+      "season": "Winter",
+      "count": 19
+    },
+    {
+      "batch": "Summer 2016",
+      "year": 2016,
+      "season": "Summer",
+      "count": 11
+    },
+    {
+      "batch": "Winter 2017",
+      "year": 2017,
+      "season": "Winter",
+      "count": 18
+    },
+    {
+      "batch": "Summer 2017",
+      "year": 2017,
+      "season": "Summer",
+      "count": 19
+    },
+    {
+      "batch": "Winter 2018",
+      "year": 2018,
+      "season": "Winter",
+      "count": 27
+    },
+    {
+      "batch": "Summer 2018",
+      "year": 2018,
+      "season": "Summer",
+      "count": 37
+    },
+    {
+      "batch": "Winter 2019",
+      "year": 2019,
+      "season": "Winter",
+      "count": 25
+    },
+    {
+      "batch": "Summer 2019",
+      "year": 2019,
+      "season": "Summer",
+      "count": 24
+    },
+    {
+      "batch": "Winter 2020",
+      "year": 2020,
+      "season": "Winter",
+      "count": 36
+    },
+    {
+      "batch": "Summer 2020",
+      "year": 2020,
+      "season": "Summer",
+      "count": 32
+    },
+    {
+      "batch": "Winter 2021",
+      "year": 2021,
+      "season": "Winter",
+      "count": 41
+    },
+    {
+      "batch": "Summer 2021",
+      "year": 2021,
+      "season": "Summer",
+      "count": 65
+    },
+    {
+      "batch": "Winter 2022",
+      "year": 2022,
+      "season": "Winter",
+      "count": 44
+    },
+    {
+      "batch": "Summer 2022",
+      "year": 2022,
+      "season": "Summer",
+      "count": 25
+    },
+    {
+      "batch": "Winter 2023",
+      "year": 2023,
+      "season": "Winter",
+      "count": 23
+    },
+    {
+      "batch": "Summer 2023",
+      "year": 2023,
+      "season": "Summer",
+      "count": 28
+    },
+    {
+      "batch": "Winter 2024",
+      "year": 2024,
+      "season": "Winter",
+      "count": 29
+    },
+    {
+      "batch": "Summer 2024",
+      "year": 2024,
+      "season": "Summer",
+      "count": 23
+    },
+    {
+      "batch": "Fall 2024",
+      "year": 2024,
+      "season": "Fall",
+      "count": 9
+    },
+    {
+      "batch": "Winter 2025",
+      "year": 2025,
+      "season": "Winter",
+      "count": 12
+    },
+    {
+      "batch": "Spring 2025",
+      "year": 2025,
+      "season": "Spring",
+      "count": 11
+    },
+    {
+      "batch": "Summer 2025",
+      "year": 2025,
+      "season": "Summer",
+      "count": 12
+    },
+    {
+      "batch": "Fall 2025",
+      "year": 2025,
+      "season": "Fall",
+      "count": 10
+    },
+    {
+      "batch": "Winter 2026",
+      "year": 2026,
+      "season": "Winter",
+      "count": 16
+    },
+    {
+      "batch": "Spring 2026",
+      "year": 2026,
+      "season": "Spring",
+      "count": 17
+    },
+    {
+      "batch": "Summer 2026",
+      "year": 2026,
+      "season": "Summer",
+      "count": 5
+    }
+  ],
+  "bySubindustry": [
+    {
+      "subindustry": "Healthcare IT",
+      "count": 143,
+      "aiCount": 75,
+      "topCount": 1,
+      "acquiredOrPublicCount": 20
+    },
+    {
+      "subindustry": "Consumer Health and Wellness",
+      "count": 114,
+      "aiCount": 28,
+      "topCount": 2,
+      "acquiredOrPublicCount": 8
+    },
+    {
+      "subindustry": "Healthcare",
+      "count": 99,
+      "aiCount": 61,
+      "topCount": 0,
+      "acquiredOrPublicCount": 6
+    },
+    {
+      "subindustry": "Healthcare Services",
+      "count": 73,
+      "aiCount": 25,
+      "topCount": 0,
+      "acquiredOrPublicCount": 5
+    },
+    {
+      "subindustry": "Therapeutics",
+      "count": 63,
+      "aiCount": 18,
+      "topCount": 0,
+      "acquiredOrPublicCount": 4
+    },
+    {
+      "subindustry": "Diagnostics",
+      "count": 57,
+      "aiCount": 14,
+      "topCount": 1,
+      "acquiredOrPublicCount": 7
+    },
+    {
+      "subindustry": "Drug Discovery and Delivery",
+      "count": 57,
+      "aiCount": 37,
+      "topCount": 1,
+      "acquiredOrPublicCount": 4
+    },
+    {
+      "subindustry": "Medical Devices",
+      "count": 44,
+      "aiCount": 13,
+      "topCount": 0,
+      "acquiredOrPublicCount": 5
+    },
+    {
+      "subindustry": "Industrial Bio",
+      "count": 32,
+      "aiCount": 9,
+      "topCount": 1,
+      "acquiredOrPublicCount": 4
+    }
+  ],
+  "byStatus": {
+    "active": 525,
+    "acquired": 58,
+    "inactive": 94,
+    "public": 5
+  },
+  "byRegion": {
+    "United States of America": 546,
+    "India": 24,
+    "Unspecified": 13,
+    "Canada": 21,
+    "Singapore": 7,
+    "Remote": 8,
+    "Mexico": 9,
+    "Nigeria": 5,
+    "United Kingdom": 23,
+    "Netherlands": 1,
+    "Puerto Rico": 1,
+    "Greece": 1,
+    "Australia": 2,
+    "Poland": 1,
+    "Philippines": 2,
+    "Austria": 1,
+    "Denmark": 2,
+    "Ghana": 1,
+    "Ecuador": 1,
+    "Switzerland": 1,
+    "Indonesia": 1,
+    "Chile": 1,
+    "Ireland": 2,
+    "Colombia": 1,
+    "Sweden": 1,
+    "Germany": 3,
+    "France": 3
+  },
+  "subindustries": [
+    "Healthcare IT",
+    "Consumer Health and Wellness",
+    "Healthcare",
+    "Healthcare Services",
+    "Therapeutics",
+    "Diagnostics",
+    "Drug Discovery and Delivery",
+    "Medical Devices",
+    "Industrial Bio"
+  ],
+  "batches": [
+    "Winter 2011",
+    "Summer 2011",
+    "Winter 2012",
+    "Summer 2012",
+    "Winter 2013",
+    "Summer 2013",
+    "Winter 2014",
+    "Summer 2014",
+    "Winter 2015",
+    "Summer 2015",
+    "Winter 2016",
+    "Summer 2016",
+    "Winter 2017",
+    "Summer 2017",
+    "Winter 2018",
+    "Summer 2018",
+    "Winter 2019",
+    "Summer 2019",
+    "Winter 2020",
+    "Summer 2020",
+    "Winter 2021",
+    "Summer 2021",
+    "Winter 2022",
+    "Summer 2022",
+    "Winter 2023",
+    "Summer 2023",
+    "Winter 2024",
+    "Summer 2024",
+    "Fall 2024",
+    "Winter 2025",
+    "Spring 2025",
+    "Summer 2025",
+    "Fall 2025",
+    "Winter 2026",
+    "Spring 2026",
+    "Summer 2026"
+  ],
+  "regions": [
+    "United States of America",
+    "India",
+    "United Kingdom",
+    "Canada",
+    "Unspecified",
+    "Mexico",
+    "Remote",
+    "Singapore",
+    "Nigeria",
+    "Germany",
+    "France",
+    "Australia",
+    "Philippines",
+    "Denmark",
+    "Ireland",
+    "Netherlands",
+    "Puerto Rico",
+    "Greece",
+    "Poland",
+    "Austria",
+    "Ghana",
+    "Ecuador",
+    "Switzerland",
+    "Indonesia",
+    "Chile",
+    "Colombia",
+    "Sweden"
+  ],
+  "updatedAt": "2026-06-25T03:55:30.484Z"
+}

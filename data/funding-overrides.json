@@ -1,0 +1,47 @@
+{
+  "commure": {
+    "totalRaised": "$1.3B",
+    "lastRound": "Series D",
+    "lastRoundDate": "2023-03",
+    "leadInvestors": ["General Catalyst"],
+    "source": "TechCrunch",
+    "sourceUrl": "https://techcrunch.com/2023/03/28/commure-athelas-raise-370m/",
+    "asOf": "2026-06"
+  },
+  "ro": {
+    "totalRaised": "$876M",
+    "lastRound": "Series D",
+    "lastRoundDate": "2021-03",
+    "leadInvestors": ["General Catalyst", "Tiger Global"],
+    "source": "Crunchbase",
+    "sourceUrl": "https://www.crunchbase.com/organization/roman-health",
+    "asOf": "2026-06"
+  },
+  "hims": {
+    "totalRaised": "$197M",
+    "lastRound": "IPO",
+    "lastRoundDate": "2021-01",
+    "leadInvestors": ["Public"],
+    "source": "SEC",
+    "sourceUrl": "https://www.sec.gov/cgi-bin/browse-edgar",
+    "asOf": "2026-06"
+  },
+  "nuvation-bio": {
+    "totalRaised": "$1.1B",
+    "lastRound": "IPO",
+    "lastRoundDate": "2021-02",
+    "leadInvestors": ["Public"],
+    "source": "Crunchbase",
+    "sourceUrl": "https://www.crunchbase.com/organization/nuvation-bio",
+    "asOf": "2026-06"
+  },
+  "medisafe": {
+    "totalRaised": "$30M",
+    "lastRound": "Series C",
+    "lastRoundDate": "2019-05",
+    "leadInvestors": ["Pitango Venture Capital"],
+    "source": "Crunchbase",
+    "sourceUrl": "https://www.crunchbase.com/organization/medisafe",
+    "asOf": "2026-06"
+  }
+}
