@@ -61,8 +61,15 @@ export default async function CompanyPage(props: PageProps<'/company/[slug]'>) {
                 <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${statusColors[company.status]}`}>
                   {company.status}
                 </span>
-                <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100 text-xs">
-                  {company.subindustry === 'Other' ? 'Uncategorized' : company.subindustry}
+                <Badge
+                  className="bg-orange-100 text-orange-700 hover:bg-orange-100 text-xs"
+                  title={company.subindustryInferred ? 'Sector inferred from tags — YC has not assigned a subindustry' : undefined}
+                >
+                  {company.subindustry === 'Other'
+                    ? 'Uncategorized'
+                    : company.subindustryInferred
+                      ? `${company.subindustry} · inferred`
+                      : company.subindustry}
                 </Badge>
                 {company.isAI && (
                   <Badge className="bg-violet-100 text-violet-700 hover:bg-violet-100 text-xs">AI</Badge>

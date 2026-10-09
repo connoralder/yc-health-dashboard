@@ -1,7 +1,7 @@
 {
-  "totalCompanies": 682,
-  "aiCount": 280,
-  "aiPct": 41,
+  "totalCompanies": 696,
+  "aiCount": 291,
+  "aiPct": 42,
   "topCompanyCount": 6,
   "acquiredOrPublicCount": 63,
   "byBatch": [
@@ -93,7 +93,7 @@
       "batch": "Winter 2018",
       "year": 2018,
       "season": "Winter",
-      "count": 27
+      "count": 28
     },
     {
       "batch": "Summer 2018",
@@ -135,7 +135,7 @@
       "batch": "Summer 2021",
       "year": 2021,
       "season": "Summer",
-      "count": 65
+      "count": 64
     },
     {
       "batch": "Winter 2022",
@@ -147,7 +147,7 @@
       "batch": "Summer 2022",
       "year": 2022,
       "season": "Summer",
-      "count": 25
+      "count": 24
     },
     {
       "batch": "Winter 2023",
@@ -183,7 +183,7 @@
       "batch": "Winter 2025",
       "year": 2025,
       "season": "Winter",
-      "count": 12
+      "count": 11
     },
     {
       "batch": "Spring 2025",
@@ -201,7 +201,7 @@
       "batch": "Fall 2025",
       "year": 2025,
       "season": "Fall",
-      "count": 10
+      "count": 11
     },
     {
       "batch": "Winter 2026",
@@ -219,105 +219,108 @@
       "batch": "Summer 2026",
       "year": 2026,
       "season": "Summer",
-      "count": 5
+      "count": 20
     }
   ],
   "bySubindustry": [
     {
       "subindustry": "Healthcare IT",
-      "count": 143,
+      "count": 144,
       "aiCount": 75,
       "topCount": 1,
-      "acquiredOrPublicCount": 20
+      "acquiredOrPublicCount": 21
     },
     {
       "subindustry": "Consumer Health and Wellness",
-      "count": 114,
-      "aiCount": 28,
+      "count": 129,
+      "aiCount": 37,
       "topCount": 2,
       "acquiredOrPublicCount": 8
     },
     {
-      "subindustry": "Other",
-      "count": 99,
-      "aiCount": 61,
-      "topCount": 0,
-      "acquiredOrPublicCount": 6
-    },
-    {
       "subindustry": "Healthcare Services",
-      "count": 73,
-      "aiCount": 25,
+      "count": 86,
+      "aiCount": 32,
       "topCount": 0,
       "acquiredOrPublicCount": 5
     },
     {
-      "subindustry": "Therapeutics",
-      "count": 63,
-      "aiCount": 18,
+      "subindustry": "Other",
+      "count": 70,
+      "aiCount": 46,
       "topCount": 0,
       "acquiredOrPublicCount": 4
     },
     {
+      "subindustry": "Therapeutics",
+      "count": 67,
+      "aiCount": 20,
+      "topCount": 0,
+      "acquiredOrPublicCount": 4
+    },
+    {
+      "subindustry": "Drug Discovery and Delivery",
+      "count": 62,
+      "aiCount": 41,
+      "topCount": 1,
+      "acquiredOrPublicCount": 5
+    },
+    {
       "subindustry": "Diagnostics",
-      "count": 57,
-      "aiCount": 14,
+      "count": 58,
+      "aiCount": 15,
       "topCount": 1,
       "acquiredOrPublicCount": 7
     },
     {
-      "subindustry": "Drug Discovery and Delivery",
-      "count": 57,
-      "aiCount": 37,
-      "topCount": 1,
-      "acquiredOrPublicCount": 4
-    },
-    {
       "subindustry": "Medical Devices",
-      "count": 44,
-      "aiCount": 13,
+      "count": 47,
+      "aiCount": 15,
       "topCount": 0,
       "acquiredOrPublicCount": 5
     },
     {
       "subindustry": "Industrial Bio",
-      "count": 32,
-      "aiCount": 9,
+      "count": 33,
+      "aiCount": 10,
       "topCount": 1,
       "acquiredOrPublicCount": 4
     }
   ],
   "byStatus": {
-    "active": 525,
+    "active": 536,
     "acquired": 58,
-    "inactive": 94,
+    "inactive": 97,
     "public": 5
   },
   "byRegion": {
-    "United States of America": 546,
+    "United States of America": 556,
+    "Unspecified": 11,
+    "Canada": 23,
+    "Thailand": 1,
+    "Remote": 7,
+    "Mexico": 10,
+    "Israel": 1,
     "India": 24,
-    "Unspecified": 13,
-    "Canada": 21,
-    "Singapore": 7,
-    "Remote": 8,
-    "Mexico": 9,
+    "Singapore": 6,
     "Nigeria": 5,
-    "United Kingdom": 23,
-    "Netherlands": 1,
+    "United Kingdom": 24,
+    "Netherlands": 2,
     "Puerto Rico": 1,
     "Greece": 1,
     "Australia": 2,
     "Poland": 1,
     "Philippines": 2,
+    "Kazakhstan": 1,
     "Austria": 1,
     "Denmark": 2,
+    "Peru": 1,
     "Ghana": 1,
     "Ecuador": 1,
     "Switzerland": 1,
     "Indonesia": 1,
     "Chile": 1,
     "Ireland": 2,
-    "Colombia": 1,
     "Sweden": 1,
     "Germany": 3,
     "France": 3
@@ -325,11 +328,11 @@
   "subindustries": [
     "Healthcare IT",
     "Consumer Health and Wellness",
-    "Other",
     "Healthcare Services",
+    "Other",
     "Therapeutics",
-    "Diagnostics",
     "Drug Discovery and Delivery",
+    "Diagnostics",
     "Medical Devices",
     "Industrial Bio"
   ],
@@ -383,152 +386,155 @@
     "Nigeria",
     "Germany",
     "France",
+    "Netherlands",
     "Australia",
     "Philippines",
     "Denmark",
     "Ireland",
-    "Netherlands",
+    "Thailand",
+    "Israel",
     "Puerto Rico",
     "Greece",
     "Poland",
+    "Kazakhstan",
     "Austria",
+    "Peru",
     "Ghana",
     "Ecuador",
     "Switzerland",
     "Indonesia",
     "Chile",
-    "Colombia",
     "Sweden"
   ],
   "sectorMomentum": [
     {
       "subindustry": "Drug Discovery and Delivery",
-      "allCount": 57,
-      "recentCount": 9,
-      "recentShare": 0.16981132075471697,
-      "allShare": 0.09777015437392796,
-      "lift": 1.7368421052631577
+      "allCount": 62,
+      "recentCount": 13,
+      "recentShare": 0.17567567567567569,
+      "allShare": 0.09904153354632587,
+      "lift": 1.7737576285963383
     },
     {
       "subindustry": "Healthcare IT",
-      "allCount": 143,
-      "recentCount": 22,
-      "recentShare": 0.41509433962264153,
-      "allShare": 0.24528301886792453,
-      "lift": 1.6923076923076923
+      "allCount": 144,
+      "recentCount": 23,
+      "recentShare": 0.3108108108108108,
+      "allShare": 0.23003194888178913,
+      "lift": 1.3511636636636637
     },
     {
       "subindustry": "Healthcare Services",
-      "allCount": 73,
-      "recentCount": 9,
-      "recentShare": 0.16981132075471697,
-      "allShare": 0.12521440823327615,
-      "lift": 1.356164383561644
-    },
-    {
-      "subindustry": "Therapeutics",
-      "allCount": 63,
-      "recentCount": 4,
-      "recentShare": 0.07547169811320754,
-      "allShare": 0.10806174957118353,
-      "lift": 0.6984126984126984
+      "allCount": 86,
+      "recentCount": 13,
+      "recentShare": 0.17567567567567569,
+      "allShare": 0.13738019169329074,
+      "lift": 1.2787554996857322
     },
     {
       "subindustry": "Consumer Health and Wellness",
-      "allCount": 114,
+      "allCount": 129,
+      "recentCount": 14,
+      "recentShare": 0.1891891891891892,
+      "allShare": 0.20607028753993611,
+      "lift": 0.9180808715692437
+    },
+    {
+      "subindustry": "Therapeutics",
+      "allCount": 67,
       "recentCount": 6,
-      "recentShare": 0.11320754716981132,
-      "allShare": 0.1955403087478559,
-      "lift": 0.5789473684210527
+      "recentShare": 0.08108108108108109,
+      "allShare": 0.10702875399361023,
+      "lift": 0.7575635336829367
     },
     {
       "subindustry": "Industrial Bio",
-      "allCount": 32,
-      "recentCount": 1,
-      "recentShare": 0.018867924528301886,
-      "allShare": 0.0548885077186964,
-      "lift": 0.34375
+      "allCount": 33,
+      "recentCount": 2,
+      "recentShare": 0.02702702702702703,
+      "allShare": 0.052715654952076675,
+      "lift": 0.5126945126945127
     },
     {
       "subindustry": "Medical Devices",
-      "allCount": 44,
-      "recentCount": 1,
-      "recentShare": 0.018867924528301886,
-      "allShare": 0.07547169811320754,
-      "lift": 0.25
+      "allCount": 47,
+      "recentCount": 2,
+      "recentShare": 0.02702702702702703,
+      "allShare": 0.07507987220447285,
+      "lift": 0.3599769982748706
     },
     {
       "subindustry": "Diagnostics",
-      "allCount": 57,
+      "allCount": 58,
       "recentCount": 1,
-      "recentShare": 0.018867924528301886,
-      "allShare": 0.09777015437392796,
-      "lift": 0.19298245614035087
+      "recentShare": 0.013513513513513514,
+      "allShare": 0.0926517571884984,
+      "lift": 0.14585274930102518
     }
   ],
   "currentYearStats": {
     "year": 2026,
-    "count": 38,
-    "aiCount": 29,
-    "aiPct": 76,
+    "count": 53,
+    "aiCount": 41,
+    "aiPct": 77,
     "topSubindustry": "Healthcare Services",
-    "topSubindustryCount": 6,
+    "topSubindustryCount": 9,
     "whitespaceSector": "Industrial Bio",
-    "whitespaceSectorCount": 32
+    "whitespaceSectorCount": 33
   },
   "currentBatchStats": {
     "batch": "Summer 2026",
-    "count": 5,
-    "aiCount": 5,
-    "aiPct": 100
+    "count": 20,
+    "aiCount": 17,
+    "aiPct": 85
   },
   "currentYearSectors": [
     {
       "subindustry": "Healthcare Services",
-      "count": 6,
-      "lift": 1.356164383561644
+      "count": 9,
+      "lift": 1.2787554996857322
     },
     {
       "subindustry": "Drug Discovery and Delivery",
-      "count": 6,
-      "lift": 1.7368421052631577
-    },
-    {
-      "subindustry": "Healthcare IT",
-      "count": 5,
-      "lift": 1.6923076923076923
+      "count": 9,
+      "lift": 1.7737576285963383
     },
     {
       "subindustry": "Consumer Health and Wellness",
-      "count": 3,
-      "lift": 0.5789473684210527
+      "count": 8,
+      "lift": 0.9180808715692437
+    },
+    {
+      "subindustry": "Healthcare IT",
+      "count": 8,
+      "lift": 1.3511636636636637
     },
     {
       "subindustry": "Therapeutics",
-      "count": 1,
-      "lift": 0.6984126984126984
+      "count": 3,
+      "lift": 0.7575635336829367
+    },
+    {
+      "subindustry": "Medical Devices",
+      "count": 2,
+      "lift": 0.3599769982748706
     },
     {
       "subindustry": "Diagnostics",
       "count": 1,
-      "lift": 0.19298245614035087
-    },
-    {
-      "subindustry": "Medical Devices",
-      "count": 1,
-      "lift": 0.25
+      "lift": 0.14585274930102518
     },
     {
       "subindustry": "Industrial Bio",
       "count": 1,
-      "lift": 0.34375
+      "lift": 0.5126945126945127
     },
     {
       "subindustry": "Other",
-      "count": 14,
+      "count": 12,
       "lift": null
     }
   ],
   "latestBatch": "Summer 2026",
-  "updatedAt": "2026-06-25T20:46:15.065Z"
+  "updatedAt": "2026-08-26T01:35:30.290Z"
 }

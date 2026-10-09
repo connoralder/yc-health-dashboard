@@ -22,6 +22,7 @@ export interface Company {
   year: number
   season: string
   subindustry: string
+  subindustryInferred: boolean
   tags: string[]
   region: string
   location: string

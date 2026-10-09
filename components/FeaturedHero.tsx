@@ -55,7 +55,13 @@ function CompanyOfTheDay({ company }: { company: Company }) {
           <span className="flex items-center gap-1"><Users className="w-3 h-3" />{company.teamSize} people</span>
         )}
         {company.subindustry && company.subindustry !== 'Other' && (
-          <Badge variant="outline" className="text-xs text-zinc-500 border-zinc-200">{company.subindustry}</Badge>
+          <Badge
+            variant="outline"
+            className="text-xs text-zinc-500 border-zinc-200"
+            title={company.subindustryInferred ? 'Sector inferred from tags — YC has not assigned a subindustry' : undefined}
+          >
+            {company.subindustryInferred ? '~ ' : ''}{company.subindustry}
+          </Badge>
         )}
       </div>
 

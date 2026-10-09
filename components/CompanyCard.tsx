@@ -81,8 +81,12 @@ export default function CompanyCard({ company }: { company: Company }) {
             </Badge>
           )}
           {company.subindustry && company.subindustry !== 'Other' && (
-            <Badge variant="outline" className="text-xs px-2 py-0.5 text-zinc-500 border-zinc-200">
-              {company.subindustry}
+            <Badge
+              variant="outline"
+              className="text-xs px-2 py-0.5 text-zinc-500 border-zinc-200"
+              title={company.subindustryInferred ? 'Sector inferred from tags — YC has not assigned a subindustry' : undefined}
+            >
+              {company.subindustryInferred ? '~ ' : ''}{company.subindustry}
             </Badge>
           )}
         </div>

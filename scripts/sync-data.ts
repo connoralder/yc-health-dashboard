@@ -49,11 +49,48 @@ function normalizeStatus(raw: string): 'active' | 'acquired' | 'public' | 'inact
   return 'active'
 }
 
+// Ordered by specificity — the first matching sector wins. Used ONLY to backfill
+// YC's "Other" (uncategorized) bucket from a company's free-form tags. Results are
+// flagged as inferred so they're never confused with YC's official subindustries.
+const TAG_SECTOR_RULES: { sector: string; tags: string[] }[] = [
+  { sector: 'Medical Devices', tags: ['medical devices', 'medical device'] },
+  { sector: 'Diagnostics', tags: ['diagnostics'] },
+  { sector: 'Drug Discovery and Delivery', tags: ['drug discovery', 'ai-powered drug discovery', 'drug delivery'] },
+  { sector: 'Therapeutics', tags: ['therapeutics', 'gene therapy', 'cell therapy'] },
+  { sector: 'Healthcare IT', tags: ['healthcare it', 'ehr', 'electronic health records'] },
+  { sector: 'Healthcare Services', tags: ['insurance', 'health insurance', 'telehealth', 'telemedicine', 'healthcare services'] },
+  { sector: 'Consumer Health and Wellness', tags: ['consumer health services', 'consumer health', 'health & wellness', 'wellness', 'fitness', 'mental health', 'mental health tech'] },
+]
+
+function inferSubindustryFromTags(tags: string[]): string | null {
+  const lower = tags.map(t => t.toLowerCase().trim())
+  for (const rule of TAG_SECTOR_RULES) {
+    if (rule.tags.some(t => lower.includes(t))) return rule.sector
+  }
+  return null
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function normalizeCompany(raw: any, overrides: Record<string, any>) {
   const { year, season } = parseBatch(raw.batch || '')
   const tags: string[] = raw.tags || []
   const isAI = deriveIsAI(tags, (raw.long_description || '') + ' ' + (raw.one_liner || ''))
+
+  // YC stores subindustry as "Healthcare -> Healthcare IT" etc. Strip the prefix.
+  // Companies with only the top-level "Healthcare" (no subcategory assigned by YC)
+  // fall into "Other". For those, try to infer a sector from the free-form tags
+  // and flag it as inferred.
+  let subindustry = ((s: string) => (!s || s === 'Healthcare' ? 'Other' : s))(
+    (raw.subindustry || '').replace(/^Healthcare -> /, '')
+  )
+  let subindustryInferred = false
+  if (subindustry === 'Other') {
+    const guess = inferSubindustryFromTags(tags)
+    if (guess) {
+      subindustry = guess
+      subindustryInferred = true
+    }
+  }
 
   return {
     slug: raw.slug,
@@ -71,12 +108,8 @@ function normalizeCompany(raw: any, overrides: Record<string, any>) {
     batch: raw.batch || '',
     year,
     season,
-    // YC stores subindustry as "Healthcare -> Healthcare IT" etc. Strip the
-    // prefix. Companies with only the top-level "Healthcare" (no subcategory
-    // assigned by YC) become "Other" — YC's uncategorized bucket.
-    subindustry: ((s: string) => (!s || s === 'Healthcare' ? 'Other' : s))(
-      (raw.subindustry || '').replace(/^Healthcare -> /, '')
-    ),
+    subindustry,
+    subindustryInferred,
     tags,
     region: (raw.regions || [])[0] || 'Unknown',
     location: typeof raw.all_locations === 'string'
